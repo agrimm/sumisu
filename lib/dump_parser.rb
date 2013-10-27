@@ -8,7 +8,7 @@ class DumpParser
     text = File.read(INPUT_FILENAME)
     data = JSON.parse(text)
     dump_parser = new(data)
-    puts dump_parser.word_frequency_analysis
+    File.write(OUTPUT_FILENAME, dump_parser.word_frequency_analysis)
   end
 
   def initialize(data)
