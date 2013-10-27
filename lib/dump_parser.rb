@@ -2,7 +2,9 @@ require 'json'
 
 # Parses JSON dumps of titles in a category
 class DumpParser
-  INPUT_FILENAME = "test/data/quick_intersection_20131027.json"
+  # Combination of 'Australian people' and 'Living people'
+  INPUT_FILENAME = 'data/quick_intersection_20131027c.json'
+  OUTPUT_FILENAME = 'data/australian_frequency_20131027c.txt'
 
   def self.run
     text = File.read(INPUT_FILENAME)
