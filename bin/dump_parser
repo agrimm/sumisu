@@ -1,0 +1,7 @@
+$:.unshift File.join(__dir__, "..", "lib")
+
+require "dump_parser"
+
+if File.identical?(__FILE__, $0)
+  DumpParser.run
+end
