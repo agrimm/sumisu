@@ -1,0 +1,7 @@
+$:.unshift File.join(__dir__, "..", "lib")
+
+require "frequency_comparer"
+
+if File.identical?(__FILE__, $0)
+  FrequencyComparer.run
+end
