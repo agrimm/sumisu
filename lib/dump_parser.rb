@@ -2,9 +2,14 @@ require 'json'
 
 # Parses JSON dumps of titles in a category
 class DumpParser
-  # Combination of 'Australian people' and 'Living people'
-  INPUT_FILENAME = 'data/quick_intersection_20131027c.json'
-  OUTPUT_FILENAME = 'data/australian_frequency_20131027c.txt'
+  # Japanese academics.
+  # https://tools.wmflabs.org/catscan2/quick_intersection.php?lang=en&project=wikipedia&cats=Japanese+academics&ns=0&depth=12&max=30000&start=0&format=json&get_count=1&callback=
+  # INPUT_FILENAME = 'data/japanese_academics_20131107a.json'
+  # OUTPUT_FILENAME = 'data/japanese_academics_20131107a.txt'
+  # INPUT_FILENAME = 'data/japanese_people_by_occupation_20131107a.json'
+  # OUTPUT_FILENAME = 'data/japanese_people_by_occupation_20131107a.txt'
+  INPUT_FILENAME = 'data/japanese_sportspeople_20131107a.json'
+  OUTPUT_FILENAME = 'data/japanese_sportspeople_20131107a.txt'
 
   def self.run
     text = File.read(INPUT_FILENAME)

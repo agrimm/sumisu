@@ -1,8 +1,11 @@
 # Compare the frequency of words from the Japanese and Australian lists
 class FrequencyComparer
-  AUSTRALIAN_FREQUENCY_FILENAME = 'data/australian_frequency_20131027c.txt'
+  # AUSTRALIAN_FREQUENCY_FILENAME = 'data/australian_frequency_20131027c.txt'
+  # Not Australian, but lack a better constant name.
+  # AUSTRALIAN_FREQUENCY_FILENAME = 'data/japanese_people_by_occupation_20131107a.txt'
+  AUSTRALIAN_FREQUENCY_FILENAME = 'data/japanese_sportspeople_20131107a.txt'
   JAPANESE_FREQUENCY_FILENAME = 'data/japanese_frequency_20131027b.txt'
-  DIFFERENCE_FILENAME = 'data/frequency_difference_20131027c.txt'
+  DIFFERENCE_FILENAME = 'data/frequency_difference_20131107a.txt'
 
   def self.run
     frequency_comparer = new(australian_frequency_data, japanese_frequency_data)
