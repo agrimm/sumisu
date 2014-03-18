@@ -2,7 +2,7 @@
 class FrequencyComparer
   # Not actually Australian
   AUSTRALIAN_FREQUENCY_FILENAME = '../nakamura/unresolved/non_japanese_names4.txt'
-  JAPANESE_FREQUENCY_FILENAME = '../nakamura/unresolved/japanese_names4.txt'
+  JAPANESE_FREQUENCY_FILENAME = '../nakamura/unresolved/japanese_names6.txt'
   # DIFFERENCE_FILENAME = 'data/frequency_difference_20131107a.txt'
 
   def self.run
