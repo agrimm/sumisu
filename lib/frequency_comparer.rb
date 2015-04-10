@@ -1,8 +1,8 @@
 # Compare the frequency of words from the Japanese and Australian lists
 class FrequencyComparer
   # Not actually Australian
-  AUSTRALIAN_FREQUENCY_FILENAME = '../akihito/results/frequent_last_names/frequent_last_names_not_japan_20150329a.txt'
-  JAPANESE_FREQUENCY_FILENAME = '../akihito/results/frequent_last_names/frequent_last_names_japan_20150329a.txt'
+  AUSTRALIAN_FREQUENCY_FILENAME = '../akihito/results/frequent_last_names/frequent_names_not_japan_20150404b.txt'
+  JAPANESE_FREQUENCY_FILENAME = '../akihito/results/frequent_last_names/frequent_names_japan_20150404b.txt'
   # DIFFERENCE_FILENAME = 'data/frequency_difference_20131107a.txt'
 
   def self.run
@@ -64,14 +64,18 @@ class FrequencyData
 
   def determine_frequency
     lines = @text.split("\n").drop(1)
-    rows = lines.map do |line|
+    lines.each_with_object({}).each_with_index do |(line, result), i|
       strings = line.split("\t")
-      word = strings.first
+      next unless strings.count == 2
+      word, frequency_string = strings
       word = word.downcase
-      frequency = Integer(strings.last)
-      [word, frequency]
+      next if word.empty?
+      next if word.length == 1
+      fail "Blank word #{word.inspect} on line #{i}" if word =~ /^ *$/
+      fail "Invalid line no #{i} #{line.inspect}" if strings.last.to_i.zero?
+      frequency = Integer(frequency_string)
+      result[word] = frequency
     end
-    Hash[rows]
   end
 
   def frequency_for(word)
