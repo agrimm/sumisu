@@ -1,8 +1,8 @@
 # Compare the frequency of words from the Japanese and Australian lists
 class FrequencyComparer
   # Not actually Australian
-  AUSTRALIAN_FREQUENCY_FILENAME = '../nakamura/unresolved/non_japanese_names4.txt'
-  JAPANESE_FREQUENCY_FILENAME = '../nakamura/unresolved/japanese_names6.txt'
+  AUSTRALIAN_FREQUENCY_FILENAME = '../akihito/results/frequent_last_names/frequent_last_names_not_japan_20150329a.txt'
+  JAPANESE_FREQUENCY_FILENAME = '../akihito/results/frequent_last_names/frequent_last_names_japan_20150329a.txt'
   # DIFFERENCE_FILENAME = 'data/frequency_difference_20131107a.txt'
 
   def self.run
@@ -67,6 +67,7 @@ class FrequencyData
     rows = lines.map do |line|
       strings = line.split("\t")
       word = strings.first
+      word = word.downcase
       frequency = Integer(strings.last)
       [word, frequency]
     end
@@ -74,6 +75,6 @@ class FrequencyData
   end
 
   def frequency_for(word)
-    @frequency.fetch(word, 0)
+    @frequency.fetch(word.downcase, 0)
   end
 end
